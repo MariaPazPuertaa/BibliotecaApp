@@ -9,13 +9,27 @@ import java.util.ArrayList;
 /**
  *
  * @author Maria Paz Puerta
+ * @since 20250312
+ * @version 1.0.0
  */
 public class Biblioteca {
+    /// Atributos
+    /**
+     * Arreglo de libros
+     */
     ArrayList<Libro> libros;
     
+    /// Constructor
     public Biblioteca() {
         this.libros=new ArrayList<>();
     }
+    
+    /**
+     * Genera y devuelve una cadena texto con la información de los libros almacenados en la lista
+     * libros.
+     * 
+     * @return Retorna la información sobre los libros como el id y el título
+     */
     public String mostrarLibros() {
         String resultado = "";
         for (int i = 0; i < libros.size(); i++) {
@@ -23,11 +37,21 @@ public class Biblioteca {
         }
         return resultado;
     }
-
+    
+    /**
+     * Agrega un objeto de tipo libro a la lista de libros.
+     * @param libro Objeto de tipo Libro
+     * @return Retorna la lista en donde se almacenan los libros
+     */
     public boolean agregarLibro(Libro libro) {
         return libros.add(libro);
     }
-
+    
+    /**
+     * Busca un libro en la lista de libros por su id
+     * @param id Identificador único del libro
+     * @return Retorna el libro si el libro se encontro o retorna null si no fue encontrado
+     */
     public Libro buscarLibro(long id) {
         for (int i = 0; i < libros.size(); i++) {
             if (libros.get(i).getId() == id) {
@@ -36,7 +60,14 @@ public class Biblioteca {
         }
         return null;
     }
-
+    
+    /**
+     * Actualiza un libro nuevo en la lista si coincide el id
+     * @param id Identificador único del libro
+     * @param nuevoLibro Nuevo objeto libro para reemplazar el existente
+     * @return Retorna true si se pudo actualizar el libro y false si no se encontro el libro a 
+     * actualizar.
+     */
     public boolean actualizarLibro(long id, Libro nuevoLibro) {
         for (int i = 0; i < libros.size(); i++) {
             if (libros.get(i).getId() == id) {
@@ -46,7 +77,13 @@ public class Biblioteca {
         }
         return false;
     }
-
+    
+    /**
+     * Elimina el libro en la lista si coincide el id
+     * @param id Identificador único del libro
+     * @return Retorna true si se pudo eliminar el libro y false si no se encontro el libro a 
+     * eliminar.
+     */
     public boolean eliminarLibro(long id) {
         for (int i = 0; i < libros.size(); i++) {
             if (libros.get(i).getId() == id) {
@@ -56,7 +93,11 @@ public class Biblioteca {
         }
         return false;
     }
-
+    
+    /**
+     * Devuelve una lista de libros organizados alfabeticamente por el título del libro
+     * @return Retorna una nueva lista con los libros organizados alfabeticamente
+     */
     public ArrayList<Libro> obtenerLibrosAlfabeticamente() {
         ArrayList<Libro> ordenados = new ArrayList<>();
         for (int i = 0; i < libros.size(); i++) {

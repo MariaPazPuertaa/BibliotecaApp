@@ -7,11 +7,11 @@ package autonoma.biblioteca.models;
 /**
  *
  * @author marti
+ * @since 20250312
+ * @version 1.0.0
  */
 public class Libro {
-    /////////////////////////////////////////////////////////////
-    ///////////atributos
-    
+    /// Atributos
     /**
      * id del libro
      */
@@ -21,6 +21,7 @@ public class Libro {
      */
     private String titulo;
 
+    /// Constructor
     public Libro(Long id, String titulo) {
         this.id = id;
         this.titulo = titulo;

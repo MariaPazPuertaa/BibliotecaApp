@@ -28,33 +28,58 @@ public abstract class Persona {
      * Email de la persona
      */
     private String correoElectronico;
-
+    
+    /// Constructor
     public Persona(String nombre, String documentoIdentidad, String correoElectronico) {
         this.nombre = nombre;
         this.documentoIdentidad = documentoIdentidad;
         this.correoElectronico = correoElectronico;
     }
-
+    
+    /**
+     * Obtiene el nombre de la persona
+     * @return Retorna su nombre
+     */
     public String getNombre() {
         return nombre;
     }
-
+    
+    /**
+     * Establece el nombre de la persona
+     * @param nombre 
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
+    /**
+     * Obtiene el documento de identidad de la persona
+     * @return Retorna su documento de identidad
+     */
     public String getDocumentoIdentidad() {
         return documentoIdentidad;
     }
-
+    
+    /**
+     * Establce el documento de identidad de la persona
+     * @param documentoIdentidad 
+     */
     public void setDocumentoIdentidad(String documentoIdentidad) {
         this.documentoIdentidad = documentoIdentidad;
     }
-
+    
+    /**
+     * Obtiene el correo electrónico de la persona
+     * @return Retorna su correo electrónico
+     */
     public String getCorreoElectronico() {
         return correoElectronico;
     }
-
+    
+    /**
+     * Establece el correo electrónico de la persona 
+     * @param correoElectronico 
+     */
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
     }
