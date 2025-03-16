@@ -183,7 +183,6 @@ public class AgregarLibro extends javax.swing.JDialog {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
-        
         try {
             String titulo = this.txtTitulo.getText();
             long id = Long.parseLong(this.txtId.getText());

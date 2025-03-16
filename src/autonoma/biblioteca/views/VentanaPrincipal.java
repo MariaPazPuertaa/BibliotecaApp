@@ -50,9 +50,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnBuscarLibro = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        btnObtenerLibroAlfabeticamente = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         btnMostrarLibro = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -71,17 +68,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
                 .addComponent(jLabel1)
-                .addGap(146, 146, 146))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -171,48 +168,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btnObtenerLibroAlfabeticamente.setBackground(new java.awt.Color(255, 255, 255));
-        btnObtenerLibroAlfabeticamente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnObtenerLibroAlfabeticamenteMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnObtenerLibroAlfabeticamenteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnObtenerLibroAlfabeticamenteMouseExited(evt);
-            }
-        });
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/BibliotecaApp/images/ObtenerLibrosAlfabeticamente.png"))); // NOI18N
-
-        jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        jLabel9.setText("Obtener Libros Alfabeticamente");
-
-        javax.swing.GroupLayout btnObtenerLibroAlfabeticamenteLayout = new javax.swing.GroupLayout(btnObtenerLibroAlfabeticamente);
-        btnObtenerLibroAlfabeticamente.setLayout(btnObtenerLibroAlfabeticamenteLayout);
-        btnObtenerLibroAlfabeticamenteLayout.setHorizontalGroup(
-            btnObtenerLibroAlfabeticamenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnObtenerLibroAlfabeticamenteLayout.createSequentialGroup()
-                .addGroup(btnObtenerLibroAlfabeticamenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(btnObtenerLibroAlfabeticamenteLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel9))
-                    .addGroup(btnObtenerLibroAlfabeticamenteLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        btnObtenerLibroAlfabeticamenteLayout.setVerticalGroup(
-            btnObtenerLibroAlfabeticamenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnObtenerLibroAlfabeticamenteLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-
         btnMostrarLibro.setBackground(new java.awt.Color(255, 255, 255));
         btnMostrarLibro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -257,26 +212,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                .addGap(43, 43, 43)
                 .addComponent(btnBuscarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(btnObtenerLibroAlfabeticamente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(50, 50, 50)
                 .addComponent(btnMostrarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(42, 42, 42)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnMostrarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnObtenerLibroAlfabeticamente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnBuscarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         btnAgregarLibro.getAccessibleContext().setAccessibleName("btnAgregarLibro");
@@ -315,14 +268,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.mouseExited(btnBuscarLibro);
     }//GEN-LAST:event_btnBuscarLibroMouseExited
 
-    private void btnObtenerLibroAlfabeticamenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnObtenerLibroAlfabeticamenteMouseEntered
-        this.mouseEntered(btnObtenerLibroAlfabeticamente);
-    }//GEN-LAST:event_btnObtenerLibroAlfabeticamenteMouseEntered
-
-    private void btnObtenerLibroAlfabeticamenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnObtenerLibroAlfabeticamenteMouseExited
-        this.mouseExited(btnObtenerLibroAlfabeticamente);
-    }//GEN-LAST:event_btnObtenerLibroAlfabeticamenteMouseExited
-
     private void btnMostrarLibroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarLibroMouseEntered
         this.mouseEntered(btnMostrarLibro);
     }//GEN-LAST:event_btnMostrarLibroMouseEntered
@@ -341,12 +286,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaBuscar.setVisible(true);
     }//GEN-LAST:event_btnBuscarLibroMouseClicked
 
-    private void btnObtenerLibroAlfabeticamenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnObtenerLibroAlfabeticamenteMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnObtenerLibroAlfabeticamenteMouseClicked
-
     private void btnMostrarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarLibroMouseClicked
-        // TODO add your handling code here:
+        MostrarLibro ventanaLibros = new MostrarLibro(this, true, this.biblioteca, this);
+        ventanaLibros.setVisible(true);
     }//GEN-LAST:event_btnMostrarLibroMouseClicked
 
     private void mouseEntered(JPanel panel){
@@ -361,16 +303,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel btnAgregarLibro;
     private javax.swing.JPanel btnBuscarLibro;
     private javax.swing.JPanel btnMostrarLibro;
-    private javax.swing.JPanel btnObtenerLibroAlfabeticamente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

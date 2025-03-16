@@ -4,7 +4,13 @@
  */
 package autonoma.biblioteca.views;
 
+import autonoma.biblioteca.models.Biblioteca;
+import autonoma.biblioteca.models.Libro;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -15,7 +21,10 @@ public class MostrarLibro extends javax.swing.JDialog {
     /**
      * Creates new form MostrarLibro
      */
-    public MostrarLibro(java.awt.Frame parent, boolean modal) {
+    private Biblioteca biblioteca;
+    private VentanaPrincipal ventanaPrincipal;
+    private ArrayList<Libro> libros;
+    public MostrarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblioteca, VentanaPrincipal ventana) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -24,6 +33,10 @@ public class MostrarLibro extends javax.swing.JDialog {
         }catch(Exception e){
             
         }
+        this.biblioteca = biblioteca;
+        this.libros = biblioteca.obtenerLibrosAlfabeticamente();
+        this.ventanaPrincipal = ventana;
+        this.llenarTabla();
     }
 
     /**
@@ -42,7 +55,7 @@ public class MostrarLibro extends javax.swing.JDialog {
         btnEliminar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaLibros = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -105,7 +118,7 @@ public class MostrarLibro extends javax.swing.JDialog {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -119,12 +132,24 @@ public class MostrarLibro extends javax.swing.JDialog {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jScrollPane1.setViewportView(jTable1);
+        tablaLibros.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tablaLibros);
+        if (tablaLibros.getColumnModel().getColumnCount() > 0) {
+            tablaLibros.getColumnModel().getColumn(0).setResizable(false);
+            tablaLibros.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -176,17 +201,50 @@ public class MostrarLibro extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-       
+       int fila = this.tablaLibros.getSelectedRow();
+        if(fila >= 0){
+            Libro libro = this.libros.get(fila);
+            ActualizarLibro ventanaActualizar = new ActualizarLibro(this.ventanaPrincipal, true, biblioteca, this, libro);
+            ventanaActualizar.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione el libro que desea eliminar");
+        }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        this.dispose();
+        int fila = this.tablaLibros.getSelectedRow();
+        if(fila >= 0){
+            Libro libro = this.libros.get(fila);
+            int opcion = JOptionPane.showConfirmDialog(this, "¿Desea eliminar el libro "+libro.getTitulo()+" de forma permanente?");
+            if (opcion == 0){
+                this.biblioteca.eliminarLibro(libro.getId());
+                this.libros = this.biblioteca.obtenerLibrosAlfabeticamente();
+                this.llenarTabla();
+                JOptionPane.showMessageDialog(this, "El libro "+libro.getTitulo()+" fue eliminado de forma exitosa");
+                this.dispose();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione el libro que desea eliminar");
+        }
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
-
+    public void llenarTabla(){
+        DefaultTableModel modelDefault = new DefaultTableModel(new String[]{"id", "Titulo"}, this.libros.size());
+        this.tablaLibros.setModel(modelDefault);
+        
+        TableModel dataModel = tablaLibros.getModel();
+        
+        for(int i=0; i<this.libros.size(); i++){
+            Libro libro = this.libros.get(i);
+            
+            dataModel.setValueAt(libro.getId(),i,0);
+            dataModel.setValueAt(libro.getTitulo(),i,1);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
@@ -196,6 +254,6 @@ public class MostrarLibro extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaLibros;
     // End of variables declaration//GEN-END:variables
 }
