@@ -10,7 +10,7 @@ package autonoma.biblioteca.models;
  * @since 20250312
  * @version 1.0.0
  */
-public class Autor {
+public class Autor extends Persona {
     /// Atributos
     /**
      * Editorial a la que pertenece el autor
@@ -23,7 +23,8 @@ public class Autor {
     private String profesion;
     
     /// Constructor
-    public Autor(String editorial, String profesion) {
+    public Autor(String editorial, String profesion, String nombre, String documentoIdentidad, String correoElectronico) {
+        super(nombre, documentoIdentidad, correoElectronico);
         this.editorial = editorial;
         this.profesion = profesion;
     }
