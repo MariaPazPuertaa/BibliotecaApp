@@ -173,6 +173,7 @@ public class BuscarLibro extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, "El libro fue encontrado: \n\n"+
                                                 "Libro " + libro.getId()+ ": "+libro.getTitulo()+"\n");
                 this.dispose();
+                
             }
         } catch(NumberFormatException e){
             JOptionPane.showMessageDialog(this, "Error: El id tiene números inválidos");
