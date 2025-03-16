@@ -15,19 +15,19 @@ public class Libro {
     /**
      * id del libro
      */
-    private Long id;
+    private long id;
     /**
      * titulo del libro
      */
     private String titulo;
 
     /// Constructor
-    public Libro(Long id, String titulo) {
+    public Libro(long id, String titulo) {
         this.id = id;
         this.titulo = titulo;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

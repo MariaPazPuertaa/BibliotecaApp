@@ -4,20 +4,23 @@
  */
 package autonoma.biblioteca.views;
 
+import autonoma.biblioteca.models.Biblioteca;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
 
 /**
  *
  * @author Maria Paz Puerta
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+    
+    private Biblioteca biblioteca;
     /**
      * Creates new form VentanaPrincipal
      */
-    public VentanaPrincipal() {
+    public VentanaPrincipal(Biblioteca biblioteca) {
         initComponents();
         this.setLocationRelativeTo(null);
         try{
@@ -25,7 +28,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }catch(Exception e){
             
         }
+        this.biblioteca = biblioteca;
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,6 +96,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnAgregarLibro.setBackground(new java.awt.Color(255, 255, 255));
         btnAgregarLibro.setFocusTraversalPolicyProvider(true);
         btnAgregarLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarLibroMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnAgregarLibroMouseEntered(evt);
             }
@@ -130,6 +138,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnBuscarLibro.setBackground(new java.awt.Color(255, 255, 255));
         btnBuscarLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarLibroMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnBuscarLibroMouseEntered(evt);
             }
@@ -168,6 +179,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnActualizarLibro.setBackground(new java.awt.Color(255, 255, 255));
         btnActualizarLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnActualizarLibroMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnActualizarLibroMouseEntered(evt);
             }
@@ -207,6 +221,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         btnObtenerLibroAlfabeticamente.setBackground(new java.awt.Color(255, 255, 255));
+        btnObtenerLibroAlfabeticamente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnObtenerLibroAlfabeticamenteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnObtenerLibroAlfabeticamenteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnObtenerLibroAlfabeticamenteMouseExited(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/BibliotecaApp/images/ObtenerLibrosAlfabeticamente.png"))); // NOI18N
 
@@ -238,6 +263,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         btnMostrarLibro.setBackground(new java.awt.Color(255, 255, 255));
+        btnMostrarLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMostrarLibroMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMostrarLibroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMostrarLibroMouseExited(evt);
+            }
+        });
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/BibliotecaApp/images/Libros.png"))); // NOI18N
 
@@ -269,6 +305,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         btnEliminarLibro.setBackground(new java.awt.Color(255, 255, 255));
+        btnEliminarLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEliminarLibroMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarLibroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarLibroMouseExited(evt);
+            }
+        });
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/BibliotecaApp/images/EliminarLibro.png"))); // NOI18N
 
@@ -295,7 +342,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -337,12 +384,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(btnActualizarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(62, 62, 62)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEliminarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnObtenerLibroAlfabeticamente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(btnMostrarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnEliminarLibro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addGap(9, 9, 9)
+                            .addComponent(btnMostrarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         btnAgregarLibro.getAccessibleContext().setAccessibleName("btnAgregarLibro");
@@ -389,8 +437,57 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.mouseExited(btnActualizarLibro);
     }//GEN-LAST:event_btnActualizarLibroMouseExited
 
+    private void btnObtenerLibroAlfabeticamenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnObtenerLibroAlfabeticamenteMouseEntered
+        this.mouseEntered(btnObtenerLibroAlfabeticamente);
+    }//GEN-LAST:event_btnObtenerLibroAlfabeticamenteMouseEntered
+
+    private void btnObtenerLibroAlfabeticamenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnObtenerLibroAlfabeticamenteMouseExited
+        this.mouseExited(btnObtenerLibroAlfabeticamente);
+    }//GEN-LAST:event_btnObtenerLibroAlfabeticamenteMouseExited
+
+    private void btnEliminarLibroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarLibroMouseEntered
+        this.mouseEntered(btnEliminarLibro);
+    }//GEN-LAST:event_btnEliminarLibroMouseEntered
+
+    private void btnEliminarLibroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarLibroMouseExited
+        this.mouseExited(btnEliminarLibro);
+    }//GEN-LAST:event_btnEliminarLibroMouseExited
+
+    private void btnMostrarLibroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarLibroMouseEntered
+        this.mouseEntered(btnMostrarLibro);
+    }//GEN-LAST:event_btnMostrarLibroMouseEntered
+
+    private void btnMostrarLibroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarLibroMouseExited
+        this.mouseExited(btnMostrarLibro);
+    }//GEN-LAST:event_btnMostrarLibroMouseExited
+
+    private void btnAgregarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarLibroMouseClicked
+        AgregarLibro ventanaAgregar = new AgregarLibro(this, true, this.biblioteca, this);
+        ventanaAgregar.setVisible(true);
+    }//GEN-LAST:event_btnAgregarLibroMouseClicked
+
+    private void btnBuscarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarLibroMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarLibroMouseClicked
+
+    private void btnActualizarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarLibroMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarLibroMouseClicked
+
+    private void btnObtenerLibroAlfabeticamenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnObtenerLibroAlfabeticamenteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnObtenerLibroAlfabeticamenteMouseClicked
+
+    private void btnEliminarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarLibroMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarLibroMouseClicked
+
+    private void btnMostrarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarLibroMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMostrarLibroMouseClicked
+
     private void mouseEntered(JPanel panel){
-        panel.setBackground(new Color(51,236,255));
+        panel.setBackground(new Color(194,239,244));
     }
     
     private void mouseExited(JPanel panel){

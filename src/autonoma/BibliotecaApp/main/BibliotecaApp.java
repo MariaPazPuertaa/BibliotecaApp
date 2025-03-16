@@ -4,6 +4,7 @@
  */
 package autonoma.BibliotecaApp.main;
 
+
 import autonoma.biblioteca.models.Biblioteca;
 import autonoma.biblioteca.views.VentanaPrincipal;
 
@@ -16,7 +17,9 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
         
-        VentanaPrincipal ventana = new VentanaPrincipal();
+        VentanaPrincipal ventana = new VentanaPrincipal(biblioteca);
         ventana.setVisible(true);
+        
+        
     }
 }
