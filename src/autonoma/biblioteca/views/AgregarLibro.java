@@ -182,13 +182,16 @@ public class AgregarLibro extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        long id = Long.parseLong(this.txtId.getText());
+
         
         try {
             String titulo = this.txtTitulo.getText();
+            long id = Long.parseLong(this.txtId.getText());
             Libro libro = new Libro(id, titulo);
-            if (this.biblioteca.agregarLibro(libro)){
-                JOptionPane.showMessageDialog(this, "Libro "+titulo+" ha sido agregado exitosamente");
+            if(titulo.isEmpty()){
+                JOptionPane.showMessageDialog(this, "Error, tiene que agregar un titulo");
+            }else if (this.biblioteca.agregarLibro(libro)){
+                JOptionPane.showMessageDialog(this, "El libro "+titulo+" ha sido agregado exitosamente");
                 this.dispose();
             } else{
                 JOptionPane.showMessageDialog(this, "Ha ocurrio un error, no se ha podido agregar el libro");
@@ -196,8 +199,8 @@ public class AgregarLibro extends javax.swing.JDialog {
             }
             this.dispose();
             
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Error: El id tiene números inválidos");
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 

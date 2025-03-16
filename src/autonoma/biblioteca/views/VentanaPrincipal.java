@@ -467,7 +467,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarLibroMouseClicked
 
     private void btnBuscarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarLibroMouseClicked
-        // TODO add your handling code here:
+        BuscarLibro ventanaBuscar = new BuscarLibro(this, true, this.biblioteca, this);
+        ventanaBuscar.setVisible(true);
     }//GEN-LAST:event_btnBuscarLibroMouseClicked
 
     private void btnActualizarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarLibroMouseClicked
