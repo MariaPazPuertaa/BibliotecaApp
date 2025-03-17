@@ -221,7 +221,7 @@ public class MostrarLibro extends javax.swing.JDialog {
                 this.libros = this.biblioteca.obtenerLibrosAlfabeticamente();
                 this.llenarTabla();
                 JOptionPane.showMessageDialog(this, "El libro "+libro.getTitulo()+" fue eliminado de forma exitosa");
-                this.dispose();
+                
             }
         } else {
             JOptionPane.showMessageDialog(this, "Por favor, seleccione el libro que desea eliminar");
