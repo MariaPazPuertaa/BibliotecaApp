@@ -114,6 +114,15 @@ public class Biblioteca {
         }
         return ordenados;
     }
+    public boolean agregarAutor(long idLibro, Autor autor) {
+    for (int i = 0; i < libros.size(); i++) {
+        if (libros.get(i).getId() == idLibro) {
+            libros.get(i).setAutor(autor);
+            return true;
+        }
+    }
+    return false;
+}
 }
     
     

@@ -4,6 +4,11 @@
  */
 package autonoma.biblioteca.views;
 
+import autonoma.biblioteca.models.Autor;
+import autonoma.biblioteca.models.Biblioteca;
+import autonoma.biblioteca.models.Libro;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author marti
@@ -13,8 +18,26 @@ public class IngresarDatosAutor extends javax.swing.JFrame {
     /**
      * Creates new form IngresarDatosAutor
      */
-    public IngresarDatosAutor() {
+    private Biblioteca biblioteca;
+    private AgregarLibro ventanaAutor;
+    private Libro libro;
+    public IngresarDatosAutor(java.awt.Frame parent,boolean modal,Biblioteca biblioteca,AgregarLibro ventanaAutor,Libro libro) {
+        super (parent,modal);
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.biblioteca = biblioteca;
+        this.ventanaAutor = ventanaAutor;
+        this.libro = libro;
+        try{
+            this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/BibliotecaApp1/images/Biblioteca.png")).getImage());
+        }catch(Exception e){
+            
+        }
+        
+    }
+    public void asignarAutor(String editorial, String profesion, String nombre, String documentoIdentidad, String correoElectronico) {
+        Autor autor = new Autor(editorial, profesion, nombre, documentoIdentidad, correoElectronico);
+        libro.setAutor(autor);  // Se asigna el autor al libro
     }
 
     /**

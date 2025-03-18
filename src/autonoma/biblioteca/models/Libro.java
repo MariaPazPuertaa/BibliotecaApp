@@ -17,6 +17,7 @@ package autonoma.biblioteca.models;
          */
         private static long idContador = 1;
         private long id;
+        private Autor autor; // Atributo de tipo Autor
         /**
          * titulo del libro
          */
@@ -41,6 +42,13 @@ package autonoma.biblioteca.models;
         public void setTitulo(String titulo) {
             this.titulo = titulo;
         }
+        public Autor getAutor() {
+            return autor; // Devuelve el autor del libro
+        }
+
+        public void setAutor(Autor autor) {
+            this.autor = autor; // Asigna un autor al libro
+        }
     
     
-}
+    }
