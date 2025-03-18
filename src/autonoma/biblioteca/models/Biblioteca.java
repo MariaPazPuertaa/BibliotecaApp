@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Maria Paz Puerta
+ * @author martin Taborda A
  * @since 20250312
  * @version 1.0.0
  */

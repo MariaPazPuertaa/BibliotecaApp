@@ -10,38 +10,37 @@ package autonoma.biblioteca.models;
  * @since 20250312
  * @version 1.0.0
  */
-public class Libro {
-    /// Atributos
-    /**
-     * id del libro
-     */
-    private long id;
-    /**
-     * titulo del libro
-     */
-    private String titulo;
+    public class Libro {
+        /// Atributos
+        /**
+         * id del libro
+         */
+        private static long idContador = 1;
+        private long id;
+        /**
+         * titulo del libro
+         */
+        private String titulo;
 
-    /// Constructor
-    public Libro(long id, String titulo) {
-        this.id = id;
-        this.titulo = titulo;
-    }
+        /// Constructor
+        public Libro(String titulo) {
+            this.id = idContador++;
+            this.titulo = titulo;
+        }
 
-    public long getId() {
-        return id;
-    }
+        public long getId() {
+            return id;
+        }
 
-    public String getTitulo() {
-        return titulo;
-    }
+        public String getTitulo() {
+            return titulo;
+        }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+        
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
+        public void setTitulo(String titulo) {
+            this.titulo = titulo;
+        }
     
     
 }
