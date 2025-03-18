@@ -60,5 +60,36 @@ public class Autor extends Persona {
     public void setProfesion(String profesion) {
         this.profesion = profesion;
     }
+    //@author marti
+
+    @Override
+    public void setCorreoElectronico(String correoElectronico) {
+        super.setCorreoElectronico(correoElectronico); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public void setDocumentoIdentidad(String documentoIdentidad) {
+        super.setDocumentoIdentidad(documentoIdentidad); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public void setNombre(String nombre) {
+        super.setNombre(nombre); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public String getNombre() {
+        return super.getNombre(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public String getDocumentoIdentidad() {
+        return super.getDocumentoIdentidad(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public String getCorreoElectronico() {
+        return super.getCorreoElectronico(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
     
 }

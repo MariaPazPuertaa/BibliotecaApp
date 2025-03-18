@@ -120,20 +120,20 @@ public class MostrarLibro extends javax.swing.JDialog {
 
         tablaLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "ID", "Titulo"
+                "ID", "Titulo", "Autor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -149,6 +149,7 @@ public class MostrarLibro extends javax.swing.JDialog {
         if (tablaLibros.getColumnModel().getColumnCount() > 0) {
             tablaLibros.getColumnModel().getColumn(0).setResizable(false);
             tablaLibros.getColumnModel().getColumn(1).setResizable(false);
+            tablaLibros.getColumnModel().getColumn(2).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -233,7 +234,7 @@ public class MostrarLibro extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
     public void llenarTabla(){
-        DefaultTableModel modelDefault = new DefaultTableModel(new String[]{"id", "Titulo"}, this.libros.size());
+        DefaultTableModel modelDefault = new DefaultTableModel(new String[]{"id", "Titulo","Autor"}, this.libros.size());
         this.tablaLibros.setModel(modelDefault);
         
         TableModel dataModel = tablaLibros.getModel();
