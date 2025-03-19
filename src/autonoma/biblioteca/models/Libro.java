@@ -4,6 +4,7 @@
  */
 package autonoma.biblioteca.models;
 
+
 /**
  *
  * @author marti
@@ -15,8 +16,9 @@ package autonoma.biblioteca.models;
         /**
          * id del libro
          */
-        private static long idContador = 1;
+        private static long idContador = 0;
         private long id;
+        
         private Autor autor; // Atributo de tipo Autor
         /**
          * titulo del libro
@@ -24,9 +26,10 @@ package autonoma.biblioteca.models;
         private String titulo;
 
         /// Constructor
-        public Libro(String titulo) {
+        public Libro(String titulo, Autor autor) {
             this.id = idContador++;
             this.titulo = titulo;
+            this.autor = autor;
         }
 
         public long getId() {
@@ -42,13 +45,14 @@ package autonoma.biblioteca.models;
         public void setTitulo(String titulo) {
             this.titulo = titulo;
         }
-        public Autor getAutor() {
-            return autor; // Devuelve el autor del libro
-        }
 
-        public void setAutor(Autor autor) {
-            this.autor = autor; // Asigna un autor al libro
-        }
-    
+    public Autor getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
+        
     
     }

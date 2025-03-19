@@ -4,22 +4,24 @@
  */
 package autonoma.BibliotecaApp.main;
 
-
+import autonoma.biblioteca.models.Autor;
 import autonoma.biblioteca.models.Biblioteca;
+import autonoma.biblioteca.models.Libro;
 import autonoma.biblioteca.views.VentanaPrincipal;
 
-/**
- *
- * @author marti
- */
+
 public class BibliotecaApp {
     
     public static void main(String[] args) {
+        //  Se crean los objetos principales
         Biblioteca biblioteca = new Biblioteca();
+        Autor autor = new Autor(" ", " ", " ", " ", " ");
+        Libro libro = new Libro(" ", autor);
+
         
-        VentanaPrincipal ventana = new VentanaPrincipal(biblioteca);
-        ventana.setVisible(true);
-        
-        
+
+        //  Luego se muestra la ventana principal con los datos ingresados
+        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(biblioteca, libro, autor);
+        ventanaPrincipal.setVisible(true);
     }
 }

@@ -4,7 +4,9 @@
  */
 package autonoma.biblioteca.views;
 
+import autonoma.biblioteca.models.Autor;
 import autonoma.biblioteca.models.Biblioteca;
+import autonoma.biblioteca.models.Libro;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -17,10 +19,12 @@ import javax.swing.JPanel;
 public class VentanaPrincipal extends javax.swing.JFrame {
     
     private Biblioteca biblioteca;
+    private Libro libro;
+    private Autor autor;
     /**
      * Creates new form VentanaPrincipal
      */
-    public VentanaPrincipal(Biblioteca biblioteca) {
+    public VentanaPrincipal(Biblioteca biblioteca, Libro libro, Autor autor) {
         initComponents();
         this.setLocationRelativeTo(null);
         try{
@@ -28,7 +32,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }catch(Exception e){
             
         }
+        this.libro = libro;
         this.biblioteca = biblioteca;
+        this.autor = autor;
     }
 
 
@@ -331,7 +337,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMostrarLibroMouseExited
 
     private void btnAgregarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarLibroMouseClicked
-        AgregarLibro ventanaAgregar = new AgregarLibro(this, true, this.biblioteca, this);
+        AgregarLibro ventanaAgregar = new AgregarLibro(this, true, this.biblioteca, this,libro, this.autor);
         ventanaAgregar.setVisible(true);
     }//GEN-LAST:event_btnAgregarLibroMouseClicked
 
@@ -341,7 +347,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarLibroMouseClicked
 
     private void btnMostrarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarLibroMouseClicked
-        MostrarLibro ventanaLibros = new MostrarLibro(this, true, this.biblioteca, this);
+        MostrarLibro ventanaLibros = new MostrarLibro(this, true, biblioteca, this, this.autor);
         ventanaLibros.setVisible(true);
     }//GEN-LAST:event_btnMostrarLibroMouseClicked
 

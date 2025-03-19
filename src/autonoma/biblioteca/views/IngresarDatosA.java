@@ -1,43 +1,28 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package autonoma.biblioteca.views;
 
 import autonoma.biblioteca.models.Autor;
-import autonoma.biblioteca.models.Biblioteca;
-import autonoma.biblioteca.models.Libro;
-import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author marti
+ * @author sant9
  */
-public class IngresarDatosAutor extends javax.swing.JFrame {
+public class IngresarDatosA extends javax.swing.JDialog {
 
     /**
-     * Creates new form IngresarDatosAutor
+     * Creates new form IngresarDatosA
      */
-    private Biblioteca biblioteca;
-    private AgregarLibro ventanaAutor;
-    private Libro libro;
-    public IngresarDatosAutor(java.awt.Frame parent,boolean modal,Biblioteca biblioteca,AgregarLibro ventanaAutor,Libro libro) {
-        super (parent,modal);
-        initComponents();
-        this.setLocationRelativeTo(null);
-        this.biblioteca = biblioteca;
-        this.ventanaAutor = ventanaAutor;
-        this.libro = libro;
-        try{
-            this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/BibliotecaApp1/images/Biblioteca.png")).getImage());
-        }catch(Exception e){
-            
-        }
-        
-    }
-    public void asignarAutor(String editorial, String profesion, String nombre, String documentoIdentidad, String correoElectronico) {
-        Autor autor = new Autor(editorial, profesion, nombre, documentoIdentidad, correoElectronico);
-        libro.setAutor(autor);  // Se asigna el autor al libro
+    private Autor autor;  // Variable para almacenar el autor
+
+    // Constructor que recibe un Autor
+    public IngresarDatosA(java.awt.Frame parent, boolean modal, Autor autor) {
+    super(parent, modal);
+    this.autor = autor; // Guardamos la referencia del autor
+    initComponents();
     }
 
     /**
@@ -49,22 +34,46 @@ public class IngresarDatosAutor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtCorreo = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        txtProfesion = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txtEditorial = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
-        txtTitulo = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        txtTitulo1 = new javax.swing.JTextField();
+        txtDocumento = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        txtTitulo2 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        txtTitulo3 = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        txtTitulo4 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jLabel17.setText("Ingrese la profesión:");
+
+        txtProfesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProfesionActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jLabel18.setText("Ingrese la editorial:");
+
+        txtEditorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEditorialActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(204, 204, 255));
         btnAgregar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
@@ -89,9 +98,9 @@ public class IngresarDatosAutor extends javax.swing.JFrame {
             }
         });
 
-        txtTitulo.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTituloActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
 
@@ -122,38 +131,14 @@ public class IngresarDatosAutor extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabel15.setText("Ingrese el documento de identidad:");
 
-        txtTitulo1.addActionListener(new java.awt.event.ActionListener() {
+        txtDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTitulo1ActionPerformed(evt);
+                txtDocumentoActionPerformed(evt);
             }
         });
 
         jLabel16.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabel16.setText("Ingrese el correo electronico:");
-
-        txtTitulo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTitulo2ActionPerformed(evt);
-            }
-        });
-
-        jLabel17.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel17.setText("Ingrese la profesión:");
-
-        txtTitulo3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTitulo3ActionPerformed(evt);
-            }
-        });
-
-        jLabel18.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel18.setText("Ingrese la editorial:");
-
-        txtTitulo4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTitulo4ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,11 +164,11 @@ public class IngresarDatosAutor extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtTitulo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(txtTitulo3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtTitulo4, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtProfesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -193,24 +178,24 @@ public class IngresarDatosAutor extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(txtTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(txtTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtProfesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(txtTitulo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                    .addComponent(txtEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -220,34 +205,53 @@ public class IngresarDatosAutor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoActionPerformed
+
+    private void txtProfesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProfesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProfesionActionPerformed
+
+    private void txtEditorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditorialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEditorialActionPerformed
+
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        
+        String nombre = txtNombre.getText();
+    String documento = txtDocumento.getText();
+    String correo = txtCorreo.getText();
+    String profesion = txtProfesion.getText();
+    String editorial = txtEditorial.getText();
+
+    if (nombre.isEmpty() || documento.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Debe ingresar al menos el nombre y el documento.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    //  Actualizamos los datos del autor
+    autor.setNombre(nombre);
+    autor.setDocumentoIdentidad(documento);
+    autor.setCorreoElectronico(correo);
+    autor.setProfesion(profesion);
+    autor.setEditorial(editorial);
+
+    JOptionPane.showMessageDialog(this, "Autor agregado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+    this.dispose(); // Cierra la ventana de ingreso
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTituloActionPerformed
+    }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void txtTitulo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitulo1ActionPerformed
+    private void txtDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDocumentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTitulo1ActionPerformed
-
-    private void txtTitulo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitulo2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTitulo2ActionPerformed
-
-    private void txtTitulo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitulo3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTitulo3ActionPerformed
-
-    private void txtTitulo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitulo4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTitulo4ActionPerformed
-
+    }//GEN-LAST:event_txtDocumentoActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -260,10 +264,10 @@ public class IngresarDatosAutor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JTextField txtTitulo;
-    private javax.swing.JTextField txtTitulo1;
-    private javax.swing.JTextField txtTitulo2;
-    private javax.swing.JTextField txtTitulo3;
-    private javax.swing.JTextField txtTitulo4;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDocumento;
+    private javax.swing.JTextField txtEditorial;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtProfesion;
     // End of variables declaration//GEN-END:variables
 }

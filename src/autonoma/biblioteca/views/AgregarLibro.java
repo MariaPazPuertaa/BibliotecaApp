@@ -4,6 +4,7 @@
  */
 package autonoma.biblioteca.views;
 
+import autonoma.biblioteca.models.Autor;
 import autonoma.biblioteca.models.Biblioteca;
 import autonoma.biblioteca.models.Libro;
 import javax.swing.ImageIcon;
@@ -18,9 +19,12 @@ public class AgregarLibro extends javax.swing.JDialog {
     /**
      * Creates new form AgregarLibro
      */
+    private Libro libro;
     private Biblioteca biblioteca;
     private VentanaPrincipal ventanaPrincipal;
-    public AgregarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblioteca, VentanaPrincipal ventana) {
+    private Autor autor;
+    
+    public AgregarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblioteca, VentanaPrincipal ventana, Libro libro, Autor autor) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -31,6 +35,8 @@ public class AgregarLibro extends javax.swing.JDialog {
         }
         this.biblioteca = biblioteca;
         this.ventanaPrincipal = ventana;
+        this.libro = libro;
+        this.autor = autor;
     }
 
     /**
@@ -49,7 +55,6 @@ public class AgregarLibro extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         txtTitulo = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         btnDatosAutor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -111,10 +116,9 @@ public class AgregarLibro extends javax.swing.JDialog {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel4.setText("Ingrese los datos del autor:");
-
-        btnDatosAutor.setText("jButton1");
+        btnDatosAutor.setText("Ingresar datos del autor");
+        btnDatosAutor.setActionCommand("Ingresar datos del autor");
+        btnDatosAutor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnDatosAutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDatosAutorActionPerformed(evt);
@@ -132,16 +136,15 @@ public class AgregarLibro extends javax.swing.JDialog {
                 .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(83, 83, 83)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(29, 29, 29)
-                        .addComponent(btnDatosAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(btnDatosAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -151,11 +154,9 @@ public class AgregarLibro extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(btnDatosAutor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(btnDatosAutor)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -187,7 +188,7 @@ public class AgregarLibro extends javax.swing.JDialog {
             if (titulo.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Error, tiene que agregar un título");
             } else {
-                Libro libro = new Libro(titulo); // No se ingresa manualmente el ID
+                Libro libro = new Libro(titulo,autor); // No se ingresa manualmente el ID
                 if (this.biblioteca.agregarLibro(libro)) {
                     JOptionPane.showMessageDialog(this, "El libro " + titulo + " ha sido agregado exitosamente");
                     this.dispose();
@@ -213,7 +214,8 @@ public class AgregarLibro extends javax.swing.JDialog {
     }//GEN-LAST:event_txtTituloActionPerformed
 
     private void btnDatosAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosAutorActionPerformed
-        // TODO add your handling code here:
+        IngresarDatosA ventanaDatos = new IngresarDatosA(ventanaPrincipal, true,autor);
+        ventanaDatos.setVisible(true);
     }//GEN-LAST:event_btnDatosAutorActionPerformed
 
 
@@ -223,7 +225,6 @@ public class AgregarLibro extends javax.swing.JDialog {
     private javax.swing.JButton btnDatosAutor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtTitulo;

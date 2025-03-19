@@ -92,4 +92,9 @@ public class Autor extends Persona {
         return super.getCorreoElectronico(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
     
+    public String toString(){
+        return getNombre();
+    }
+    
+    
 }

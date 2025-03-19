@@ -4,6 +4,7 @@
  */
 package autonoma.biblioteca.views;
 
+import autonoma.biblioteca.models.Autor;
 import autonoma.biblioteca.models.Biblioteca;
 import autonoma.biblioteca.models.Libro;
 import java.util.ArrayList;
@@ -24,7 +25,9 @@ public class MostrarLibro extends javax.swing.JDialog {
     private Biblioteca biblioteca;
     private VentanaPrincipal ventanaPrincipal;
     private ArrayList<Libro> libros;
-    public MostrarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblioteca, VentanaPrincipal ventana) {
+    private Autor autor;
+    
+    public MostrarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblioteca, VentanaPrincipal ventana, Autor autor) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -36,6 +39,7 @@ public class MostrarLibro extends javax.swing.JDialog {
         this.biblioteca = biblioteca;
         this.libros = biblioteca.obtenerLibrosAlfabeticamente();
         this.ventanaPrincipal = ventana;
+        this.autor = autor;
         this.llenarTabla();
     }
 
@@ -120,20 +124,20 @@ public class MostrarLibro extends javax.swing.JDialog {
 
         tablaLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Titulo", "Autor"
+                "ID", "Titulo", "Autor", "Editorial"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -150,6 +154,7 @@ public class MostrarLibro extends javax.swing.JDialog {
             tablaLibros.getColumnModel().getColumn(0).setResizable(false);
             tablaLibros.getColumnModel().getColumn(1).setResizable(false);
             tablaLibros.getColumnModel().getColumn(2).setResizable(false);
+            tablaLibros.getColumnModel().getColumn(3).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -234,19 +239,22 @@ public class MostrarLibro extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
     public void llenarTabla(){
-        DefaultTableModel modelDefault = new DefaultTableModel(new String[]{"id", "Titulo","Autor"}, this.libros.size());
-        this.tablaLibros.setModel(modelDefault);
-        
-        TableModel dataModel = tablaLibros.getModel();
-        
-        for(int i=0; i<this.libros.size(); i++){
+        // 1. Modificar el modelo de la tabla para que tenga las columnas correctas
+    DefaultTableModel modelDefault = new DefaultTableModel(new String[]{"ID", "Titulo", "Autor", "Editorial"}, this.libros.size());
+    this.tablaLibros.setModel(modelDefault);
+    
+    TableModel dataModel = tablaLibros.getModel();
+    
+    // 2. Llenar la tabla con los datos de los libros
+        for (int i = 0; i < this.libros.size(); i++) {
             Libro libro = this.libros.get(i);
-            
-            dataModel.setValueAt(libro.getId(),i,0);
-            dataModel.setValueAt(libro.getTitulo(),i,1);
+        
+            dataModel.setValueAt(libro.getId(), i, 0);           // ID del libro
+            dataModel.setValueAt(libro.getTitulo(), i, 1);       // Título del libro
+            dataModel.setValueAt(libro.getAutor(), i, 2);        // Nombre del autor
+            dataModel.setValueAt(libro.getAutor().getEditorial(), i, 3);    // Editorial del libro
         }
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnCancelar;
