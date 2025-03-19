@@ -24,6 +24,7 @@ package autonoma.biblioteca.models;
          * titulo del libro
          */
         private String titulo;
+     
 
         /// Constructor
         public Libro(String titulo, Autor autor) {
@@ -53,6 +54,7 @@ package autonoma.biblioteca.models;
     public void setAutor(Autor autor) {
         this.autor = autor;
     }
+    
         
     
     }

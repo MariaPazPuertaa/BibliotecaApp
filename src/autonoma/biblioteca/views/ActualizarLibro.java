@@ -59,8 +59,9 @@ public class ActualizarLibro extends javax.swing.JDialog {
         jLabel14.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabel14.setText("Ingrese el nuevo título del libro: ");
 
-        btnCancelar.setBackground(new java.awt.Color(204, 204, 255));
+        btnCancelar.setBackground(new java.awt.Color(204, 0, 0));
         btnCancelar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -99,8 +100,9 @@ public class ActualizarLibro extends javax.swing.JDialog {
                 .addGap(25, 25, 25))
         );
 
-        btnActualizar.setBackground(new java.awt.Color(204, 204, 255));
+        btnActualizar.setBackground(new java.awt.Color(0, 153, 153));
         btnActualizar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {

@@ -91,8 +91,9 @@ public class MostrarLibro extends javax.swing.JDialog {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnActualizar.setBackground(new java.awt.Color(204, 204, 255));
+        btnActualizar.setBackground(new java.awt.Color(0, 153, 153));
         btnActualizar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +214,7 @@ public class MostrarLibro extends javax.swing.JDialog {
             ActualizarLibro ventanaActualizar = new ActualizarLibro(this.ventanaPrincipal, true, biblioteca, this, libro);
             ventanaActualizar.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(this, "Por favor, seleccione el libro que desea eliminar");
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione el libro que desea actualizar");
         }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
@@ -238,23 +239,23 @@ public class MostrarLibro extends javax.swing.JDialog {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
-    public void llenarTabla(){
-        // 1. Modificar el modelo de la tabla para que tenga las columnas correctas
+    public void llenarTabla() {
+    // 1. Modificar el modelo de la tabla para que tenga las columnas correctas
     DefaultTableModel modelDefault = new DefaultTableModel(new String[]{"ID", "Titulo", "Autor", "Editorial"}, this.libros.size());
     this.tablaLibros.setModel(modelDefault);
-    
+
     TableModel dataModel = tablaLibros.getModel();
-    
+
     // 2. Llenar la tabla con los datos de los libros
-        for (int i = 0; i < this.libros.size(); i++) {
-            Libro libro = this.libros.get(i);
-        
-            dataModel.setValueAt(libro.getId(), i, 0);           // ID del libro
-            dataModel.setValueAt(libro.getTitulo(), i, 1);       // Título del libro
-            dataModel.setValueAt(libro.getAutor(), i, 2);        // Nombre del autor
-            dataModel.setValueAt(libro.getAutor().getEditorial(), i, 3);    // Editorial del libro
-        }
+    for (int i = 0; i < this.libros.size(); i++) {
+        Libro libro = this.libros.get(i);
+
+        dataModel.setValueAt(libro.getId(), i, 0);        // ID del libro
+        dataModel.setValueAt(libro.getTitulo(), i, 1);    // Título del libro
+        dataModel.setValueAt(libro.getAutor(), i, 2);        // Nombre del autor
+        dataModel.setValueAt(libro.getAutor().getEditorial(), i, 3);    // Editorial del libro
     }
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnCancelar;

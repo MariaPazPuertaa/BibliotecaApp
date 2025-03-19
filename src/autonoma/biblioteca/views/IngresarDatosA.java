@@ -20,9 +20,9 @@ public class IngresarDatosA extends javax.swing.JDialog {
 
     // Constructor que recibe un Autor
     public IngresarDatosA(java.awt.Frame parent, boolean modal, Autor autor) {
-    super(parent, modal);
-    this.autor = autor; // Guardamos la referencia del autor
-    initComponents();
+        super(parent, modal);
+        this.autor = autor; // Guardamos la referencia del autor
+        initComponents();
     }
 
     /**
@@ -75,8 +75,9 @@ public class IngresarDatosA extends javax.swing.JDialog {
             }
         });
 
-        btnAgregar.setBackground(new java.awt.Color(204, 204, 255));
+        btnAgregar.setBackground(new java.awt.Color(0, 153, 255));
         btnAgregar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("Agregar");
         btnAgregar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,8 +89,9 @@ public class IngresarDatosA extends javax.swing.JDialog {
         jLabel14.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabel14.setText("Ingrese el nombre del autor:");
 
-        btnCancelar.setBackground(new java.awt.Color(204, 204, 255));
+        btnCancelar.setBackground(new java.awt.Color(204, 0, 0));
         btnCancelar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {

@@ -84,10 +84,10 @@ public class BuscarLibro extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabel6.setText("Ingrese el id del libro: ");
 
-        btnBuscar.setBackground(new java.awt.Color(204, 204, 255));
+        btnBuscar.setBackground(new java.awt.Color(0, 204, 0));
         btnBuscar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
-        btnBuscar.setActionCommand("Buscar");
         btnBuscar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,8 +95,9 @@ public class BuscarLibro extends javax.swing.JDialog {
             }
         });
 
-        btnCancelar.setBackground(new java.awt.Color(204, 204, 255));
+        btnCancelar.setBackground(new java.awt.Color(204, 0, 0));
         btnCancelar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -191,23 +192,11 @@ public class BuscarLibro extends javax.swing.JDialog {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnAgregar1;
-    private javax.swing.JButton btnAgregar2;
-    private javax.swing.JButton btnAgregar3;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables

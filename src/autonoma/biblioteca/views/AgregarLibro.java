@@ -23,6 +23,7 @@ public class AgregarLibro extends javax.swing.JDialog {
     private Biblioteca biblioteca;
     private VentanaPrincipal ventanaPrincipal;
     private Autor autor;
+   
     
     public AgregarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblioteca, VentanaPrincipal ventana, Libro libro, Autor autor) {
         super(parent, modal);
@@ -87,8 +88,9 @@ public class AgregarLibro extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnAgregar.setBackground(new java.awt.Color(204, 204, 255));
+        btnAgregar.setBackground(new java.awt.Color(0, 153, 255));
         btnAgregar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("Agregar");
         btnAgregar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -100,8 +102,9 @@ public class AgregarLibro extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabel3.setText("Ingrese el título del libro: ");
 
-        btnCancelar.setBackground(new java.awt.Color(204, 204, 255));
+        btnCancelar.setBackground(new java.awt.Color(204, 0, 0));
         btnCancelar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +120,6 @@ public class AgregarLibro extends javax.swing.JDialog {
         });
 
         btnDatosAutor.setText("Ingresar datos del autor");
-        btnDatosAutor.setActionCommand("Ingresar datos del autor");
         btnDatosAutor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnDatosAutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
