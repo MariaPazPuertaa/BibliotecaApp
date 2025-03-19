@@ -17,7 +17,7 @@ public class BibliotecaApp {
         Biblioteca biblioteca = new Biblioteca();
         Autor autor = new Autor(" ", " ", " ", " ", " ");
         Libro libro = new Libro(" ", autor);
-
+        biblioteca.agregarLibro(libro);
         
 
         //  Luego se muestra la ventana principal con los datos ingresados

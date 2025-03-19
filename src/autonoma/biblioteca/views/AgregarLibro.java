@@ -184,22 +184,27 @@ public class AgregarLibro extends javax.swing.JDialog {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
         try {
-            String titulo = this.txtTitulo.getText();
-            if (titulo.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Error, tiene que agregar un título");
-            } else {
-                Libro libro = new Libro(titulo,autor); // No se ingresa manualmente el ID
+        String titulo = this.txtTitulo.getText();
+        if (titulo.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Error, tiene que agregar un título");
+        } else {
+            // Crear una nueva instancia de Autor en cada libro
+            Autor nuevoAutor = new Autor(autor.getEditorial(), autor.getProfesion(), 
+                                         autor.getNombre(), autor.getDocumentoIdentidad(), 
+                                         autor.getCorreoElectronico());
+
+                // Crear un nuevo libro con un autor independiente
+                Libro libro = new Libro(titulo, nuevoAutor);
+            
                 if (this.biblioteca.agregarLibro(libro)) {
-                    JOptionPane.showMessageDialog(this, "El libro " + titulo + " ha sido agregado exitosamente");
-                    this.dispose();
-                    
+                JOptionPane.showMessageDialog(this, "El libro " + titulo + " ha sido agregado exitosamente");
+                this.dispose();
                 } else {
                 JOptionPane.showMessageDialog(this, "Ha ocurrido un error, no se ha podido agregar el libro");
-                this.dispose();
+                    this.dispose();
                 }
             }    
-    
-        } catch (Exception e) {
+            } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage());
         }
 
